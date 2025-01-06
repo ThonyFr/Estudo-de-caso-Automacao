@@ -18,14 +18,14 @@ def capturar_dados():
         navegador.find_element(By.XPATH, '//*[@id="APjFqb"]').send_keys(Keys.ENTER)
 
         # Captura dos dados
-        temperatura_str = navegador.find_element(By.XPATH, '//*[@id="wob_tm"]').text
-        temperatura = int(temperatura_str)
+        temperatura_txt = navegador.find_element(By.XPATH, '//*[@id="wob_tm"]').text
+        temperatura = int(temperatura_txt)
 
-        umidade_str = navegador.find_element(By.XPATH, '//*[@id="wob_hm"]').text
-        umidade = int(umidade_str.replace('%', '').strip())
+        umidade_txt = navegador.find_element(By.XPATH, '//*[@id="wob_hm"]').text
+        umidade = int(umidade_txt.replace('%', '').strip())
 
         # Obter a data e hora atual
-        data_hora_atual = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        data_hora_atual = datetime.now().strftime('%d-%m-%Y %H:%M:%S')
 
         # Nome do arquivo Excel
         arquivo_excel = "historico_tempo.xlsx"
