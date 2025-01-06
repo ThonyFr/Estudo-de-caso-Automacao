@@ -3,7 +3,7 @@ from tkinter import messagebox
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
-from openpyxl import Workbook, load_workbook
+from openpyxl import workbook, load_workbook
 from datetime import datetime
 
 # Função para capturar os dados e salvar no Excel
