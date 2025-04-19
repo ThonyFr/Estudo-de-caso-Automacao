@@ -17,7 +17,7 @@ def capturar_dados():
         navegador.find_element(By.XPATH, '//*[@id="APjFqb"]').send_keys('Previsão do tempo')
         navegador.find_element(By.XPATH, '//*[@id="APjFqb"]').send_keys(Keys.ENTER)
 
-        # Captura dos dados
+        # Captura e tratamento dos dados 
         temperatura_txt = navegador.find_element(By.XPATH, '//*[@id="wob_tm"]').text
         temperatura = int(temperatura_txt)
 
@@ -45,8 +45,7 @@ def capturar_dados():
         # Salva o arquivo Excel
         workbook.save(arquivo_excel)
         navegador.quit()
-
-        # Exibe uma mensagem de sucesso
+        
         messagebox.showinfo("Sucesso", f"Dados salvos com sucesso!\nTemperatura: {temperatura}°C\nUmidade: {umidade}%")
 
     except Exception as e:
@@ -60,18 +59,14 @@ def interface():
     janela.title("Coletor de Dados Meteorológicos")
     janela.geometry("400x200")
 
-    # Texto de instrução
     label = tk.Label(janela, text="Clique no botão abaixo para capturar os dados", font=("Arial", 12))
     label.pack(pady=20)
 
-    # Botão para capturar os dados
     botao = tk.Button(janela, text="Capturar Dados", font=("Arial", 14), bg="lightblue", command=capturar_dados)
     botao.pack(pady=20)
 
-    # Iniciar o loop da interface gráfica
     janela.mainloop()
 
-# Executa a interface
 interface()
 
 
